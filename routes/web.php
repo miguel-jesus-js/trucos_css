@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\http\Controller\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +25,9 @@ Route::get('/crearpost', function () {
 Route::get('/crearpregunta', function () {
     return view('preguntas.crear');
 });
+//Obtener post recientes
+Route::post('api/postRecientes','PostController@getPostRecientes');
+//Route::post('postRecientes',\App\Http\Controllers\PostController::class . '@getPostRecientes');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
